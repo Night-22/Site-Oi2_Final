@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'MinhaFonteLocal';
+  src: url("kids_magazine/Kids Magazine.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MinhaFonteLocal2';
+  src: url("barber_chop/BarberChop.otf") format("opentype");
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', sans-serif;
+  background: center/cover no-repeat fixed;
+  color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid #e65c1a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  backdrop-filter: blur(8px);
+}
+
+header h1 {
+  margin: 0;
+  font: 1.8rem 'MinhaFonteLocal2', sans-serif;
+  color: #e65c1a;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 3rem;
+}
+
+nav a {
+  font: 600 1.3rem 'MinhaFonteLocal', cursive;
+  color: #e65c1a;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background: #e65c1a;
+  transition: width 0.3s;
+}
+
+nav a:hover {
+  color: #ffb270;
+  transform: scale(1.1);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+/* --- FIM NAV BAR --- */
+
+.conteudo-lateral {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titulo-principal {
+  font: 3.5rem 'MinhaFonteLocal', cursive;
+  color: #e65c1a;
+  line-height: 1.2;
+  text-shadow: 2px 2px 6px rgba(255,255,255,0.6);
+  text-align: left;
+  margin: 0;
+}
+
+.subtitulo {
+  font: 1.2rem 'Fredoka', sans-serif;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  max-width: 300px;
+}
+
+.botao-jogar {
+  background: #e65c1a;
+  color: #fff;
+  border: none;
+  padding: 1rem 2.5rem;
+  font: 1.5rem 'MinhaFonteLocal', cursive;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.botao-jogar:hover {
+  transform: scale(1.05);
+  background: #ff7733;
+  box-shadow: 0 0 20px #ff7733;
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 1rem 2rem;
+  text-align: center;
+  font: 1rem 'Fredoka', sans-serif;
+  color: #e65c1a;
+  border-top: 3px solid #e65c1a;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 600px) {
+  .conteudo-lateral {
+    left: 8%;
+    gap: 1.2rem;
+  }
+
+  .titulo-principal {
+    font-size: 2.3rem;
+  }
+
+  .subtitulo {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .botao-jogar {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+  }
+
+  nav {
+    gap: 1.5rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}

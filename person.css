@@ -1,0 +1,192 @@
+@font-face {
+  font-family: 'MinhaFonteLocal';
+  src: url('kids_magazine/Kids Magazine.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MinhaFonteLocal2';
+  src: url('barber_chop/BarberChop.otf') format('opentype');
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("garoto estrasnho.png") center center / cover no-repeat fixed;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-family: 'MinhaFonteLocal', cursive, sans-serif;
+}
+
+main {
+  max-width: 900px;
+  margin: 100px auto 80px;
+  padding: 2.5rem 3rem;
+  background: rgba(255, 255, 255, 0.35);  /* mais translúcido */
+  backdrop-filter: saturate(180%) blur(20px); /* vidro fosco */
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  color: #e65c1a;
+  font-family: 'MinhaFonteLocal', cursive;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h1 {
+  font: normal 2rem 'MinhaFonteLocal', cursive;
+  color: #e65c1a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  user-select: none;
+  text-shadow: none;
+}
+
+.character-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #ff7733;
+  border-radius: 15px;
+  padding: 1.8rem 2rem;
+  box-shadow: none;
+  color: #000;
+  font-family: 'MinhaFonteLocal', cursive;
+  user-select: text;
+  line-height: 1.5;
+}
+
+.character-card h2 {
+  font: 2rem 'MinhaFonteLocal2', cursive;
+  margin-bottom: 0.5rem;
+  color: #e65c1a;
+  user-select: none;
+  text-shadow: none;
+}
+
+.character-card p {
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 3rem;
+  background: rgba(255, 255, 255, 0.25); /* mais translúcido */
+  backdrop-filter: blur(12px); /* vidro fosco */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-bottom: 3px solid #e65c1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font: 1.8rem 'MinhaFonteLocal2', cursive;
+  color: #e65c1a;
+  user-select: none;
+  cursor: default;
+  text-shadow: none;
+}
+
+nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav a {
+  position: relative;
+  background: transparent;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #e65c1a;
+  font-family: 'MinhaFonteLocal', cursive;
+  transition: color 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+  padding-bottom: 3px;
+}
+
+nav a:hover {
+  color: #ffb270;
+  transform: scale(1.1);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background: #ff7733;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.25); /* mais translúcido */
+  backdrop-filter: blur(12px);
+  border-top: 3px solid #e65c1a;
+  font: 600 1rem 'Fredoka', sans-serif;
+  color: #e65c1a;
+  text-align: center;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  user-select: none;
+  z-index: 1000;
+  transition: color 0.3s;
+  text-shadow: none;
+}
+
+footer:hover {
+  color: #ff7733;
+}
+
+@media (max-width: 900px) {
+  main {
+    margin: 90px 1rem 70px;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  nav a {
+    font-size: 1.1rem;
+  }
+
+  header {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  nav {
+    gap: 1.5rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+}

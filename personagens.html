@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personagens - BISCOITO C SUCO</title>
+  <link rel="stylesheet" href="person.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="logo">NAVE</div>
+    <nav>
+      <a href="index.html">INÍCIO</a>
+      <a href="historia.html">HISTÓRIA</a>
+      <a href="mecanicas.html">COMANDO</a>
+      <a href="creditos.html">CRÉDITOS</a>
+       <a href="ods.html">ODS</a>
+       <a href="depoimento.html">DEPOIMENTOS</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>CONHEÇA OS PERSONAGENS</h1>
+
+    <div class="character-card">
+      <h2>PEDRO</h2>
+      <p>
+        Pedro é o protagonista do jogo. Um garoto esperto, morador do Rio de Janeiro e aluno de uma escola pública. Após
+        comer biscoito com suco, ele ganha poderes especiais. Determinado e justo, ele enfrenta os problemas da escola
+        transformados em inimigos reais. Usa migalhas de biscoito e gotas de suco como ataques, além dos especiais:
+        tsunami de suco e escudo de biscoito. Veste o uniforme escolar tradicional com bermuda azul, camiseta branca com
+        listras azuis e tênis preto.
+      </p>
+    </div>
+
+    <div class="character-card">
+      <h2>CHEFES E INIMIGOS</h2>
+      <p>
+        <strong>Calor:</strong> Cospe rajadas de fogo, lança bolas flamejantes e cria fumaça para atrapalhar.<br><br>
+        <strong>Bullying:</strong> Joga bolinhas de papel, parte para o soco e lança palavras ofensivas que causam
+        dano.<br><br>
+        <strong>Falta de Professores:</strong> Atira lápis e folhas, teleporta pela tela e hipnotiza Pedro por 2
+        segundos.<br><br>
+        <strong>Obstáculos:</strong> <br>
+        - <em>Livros Voadores:</em> atacam com língua gigante.<br>
+        - <em>Garrafa de Água:</em> cuspe jatos d’água.<br>
+        - <em>Equações:</em> correm pela tela causando dano ao toque.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    NAVE Rio - Rio de Janeiro, RJ - 2025 - Oficina Integrada 2
+  </footer>
+
+  <script>
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
