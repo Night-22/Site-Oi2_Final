@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Mecânicas - BISCOITO C SUCO</title>
+
+  <style>
+    @font-face {
+      font-family: 'MinhaFonteLocal';
+      src: url('kids_magazine/Kids Magazine.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'MinhaFonteLocal2';
+      src: url('barber_chop/BarberChop.otf') format('opentype');
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Fredoka', 'MinhaFonteLocal', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-top: 80px;
+      padding-bottom: 60px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #3b2f25;
+      background: url("garoto estrasnho.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: rgba(255 255 255 / 0.25);
+      backdrop-filter: blur(8px);
+      border-bottom: 3px solid #e65c1a;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      z-index: 1000;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(255 255 255 / 0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      color: #e65c1a;
+      font-size: 1.8rem;
+      font-family: 'MinhaFonteLocal2', sans-serif;
+      user-select: none;
+      cursor: default;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    nav a {
+      position: relative;
+      background: transparent;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #e65c1a;
+      font-family: 'MinhaFonteLocal', cursive;
+      transition: color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+      padding-bottom: 3px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #e65c1a;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffb270;
+      transform: scale(1.05);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 4rem auto 2rem auto;
+      background: rgba(255 255 255 / 0.5);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      color: #2c1f18;
+      padding: 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    main h1 {
+      color: #e65c1a;
+      font-family: 'MinhaFonteLocal', cursive;
+      line-height: 1.2;
+      text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6);
+      text-align: left;
+      margin: 0;
+    }
+
+    .mechanic-section h2 {
+      font-family: 'MinhaFonteLocal', cursive;
+      font-weight: normal;
+      font-size: 1.8rem;
+      color: #ff7733;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .control {
+      background: rgba(255 255 255 / 0.7);
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #3b2f25;
+      font-size: 1.1rem;
+    }
+
+    .key {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background: #fff;
+      border: 2px solid #e65c1a;
+      border-radius: 6px;
+      font-weight: bold;
+      min-width: 40px;
+      text-align: center;
+      user-select: none;
+      box-shadow: inset 0 -2px 0 #ff7733;
+      font-size: 1.1rem;
+    }
+
+    .mouse-icon {
+      font-weight: bold;
+      font-size: 1.1rem;
+      background: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      border: 2px solid #e65c1a;
+      user-select: none;
+      box-shadow: inset 0 -2px 0 #ff7733;
+    }
+
+    .gameplay-section {
+      background: rgba(255 255 255 / 0.7);
+      padding: 1.5rem 2rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      color: #3b2f25;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .gameplay-section p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      user-select: text;
+    }
+
+    .gameplay-section video {
+      border-radius: 12px;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255 255 255 / 0.25);
+      backdrop-filter: blur(8px);
+      border-top: 3px solid #e65c1a;
+      color: #e65c1a;
+      font-size: 1rem;
+      font-family: 'Fredoka', sans-serif;
+      text-align: center;
+      padding: 1rem 2rem;
+      user-select: none;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    footer:hover {
+      color: #ff7733;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        margin: 3rem 1rem 2rem 1rem;
+        padding: 2rem;
+      }
+
+      main h1 {
+        font-size: 2.2rem;
+      }
+
+      nav a {
+        font-size: 1.1rem;
+        margin-left: 16px;
+      }
+
+      header {
+        padding: 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="logo">NAVE</div>
+    <nav>
+      <a href="index.html">INÍCIO</a>
+      <a href="personagens.html">PERSONAGENS</a>
+      <a href="historia.html">HISTÓRIA</a>
+      <a href="creditos.html">CRÉDITOS</a>
+      <a href="ods.html">ODS</a>
+      <a href="depoimento.html">DEPOIMENTOS</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>MECÂNICAS DO JOGO</h1>
+
+    <section class="mechanic-section">
+      <h2>COMANDOS DO TECLADO</h2>
+      <div class="controls">
+        <div class="control">
+          <span class="key">A</span>
+          <p>Andar para a esquerda</p>
+        </div>
+        <div class="control">
+          <span class="key">W</span>
+          <p>Pular</p>
+        </div>
+        <div class="control">
+          <span class="key">S</span>
+          <p>Agachar</p>
+        </div>
+        <div class="control">
+          <span class="key">D</span>
+          <p>Andar para a direita</p>
+        </div>
+        <div class="control">
+          <span class="key">Espaço</span>
+          <p>Especial do Biscoito (Escudo)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mechanic-section">
+      <h2>COMANDOS DO MOUSE</h2>
+      <div class="controls">
+        <div class="control">
+          <span class="mouse-icon">Botão Esquerdo</span>
+          <p>Atira migalhas de biscoito</p>
+        </div>
+        <div class="control">
+          <span class="mouse-icon">Botão Direito</span>
+          <p>Especial do Suco (Tsunami)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gameplay-section">
+      <h2>GAMEPLAY</h2>
+      <video controls preload="metadata" src="gameplay.mp4" type="video/mp4"
+        aria-label="Vídeo demonstrativo do gameplay"></video>
+    </section>
+  </main>
+
+  <footer>
+    NAVE Rio - Rio de Janeiro, RJ - 2025 - Oficina Integrada 2
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

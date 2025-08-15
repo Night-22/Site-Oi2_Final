@@ -1,0 +1,196 @@
+/* ===== Fontes Personalizadas ===== */
+@font-face {
+  font-family: 'MinhaFonteLocal';
+  src: url('kids_magazine/Kids Magazine.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MinhaFonteLocal2';
+  src: url('barber_chop/BarberChop.otf') format('opentype');
+  font-display: swap;
+}
+
+/* ===== Reset Básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Corpo da Página ===== */
+body {
+  font-family: 'Fredoka', sans-serif;
+  background: url('garoto estrasnho.png') center/cover fixed;
+  color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Fundo desfocado com brilho */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: inherit;
+  filter: blur(12px) brightness(1.1);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+/* ===== Cabeçalho ===== */
+header {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid #e65c1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-family: 'MinhaFonteLocal2', sans-serif;
+  font-size: 1.8rem;
+  color: #e65c1a;
+  letter-spacing: 1px;
+  user-select: none;
+  cursor: default;
+}
+
+/* ===== Navegação ===== */
+nav {
+  display: flex;
+  gap: 3rem;
+}
+
+nav a {
+  text-decoration: none;
+  font: 600 1.3rem 'MinhaFonteLocal', cursive;
+  color: #e65c1a;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+  user-select: none;
+  cursor: pointer;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background: #e65c1a;
+  transition: width 0.3s;
+  border-radius: 2px;
+}
+
+nav a:hover {
+  color: #ffb270;
+  transform: scale(1.1);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 2rem;
+}
+
+/* Caixa central do texto */
+.caixa {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Título da caixa */
+.caixa h1 {
+  font: 3rem 'MinhaFonteLocal', cursive;
+  color: #e65c1a;
+  text-align: center;
+}
+
+/* Parágrafos */
+.caixa p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Lista dentro da caixa */
+.caixa ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding-left: 1.5rem;
+}
+
+/* Imagem do ODS */
+#imagem-ods4 {
+  max-width: 220px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 1.5rem auto;
+  display: block;
+}
+
+/* ===== Rodapé ===== */
+footer {
+  text-align: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.25);
+  border-top: 3px solid #e65c1a;
+  backdrop-filter: blur(8px);
+  color: #e65c1a;
+  font: 1rem 'Fredoka', sans-serif;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+footer:hover {
+  color: #ff7733;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+  nav {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  .caixa {
+    padding: 1.5rem;
+  }
+
+  .caixa h1 {
+    font-size: 2.2rem;
+  }
+
+  .caixa p, .caixa ul {
+    font-size: 1rem;
+  }
+}

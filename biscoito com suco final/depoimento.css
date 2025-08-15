@@ -1,0 +1,191 @@
+ /*Fontes Personalizadas*/
+    @font-face {
+      font-family: 'MinhaFonteLocal';
+      src: url('kids_magazine/Kids Magazine.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'MinhaFonteLocal2';
+      src: url('barber_chop/BarberChop.otf') format('opentype');
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+   
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background: url('garoto estrasnho.png') center/cover fixed;
+      color: #000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: inherit;
+      filter: blur(12px) brightness(1.1);
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    
+    header {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 3px solid #e65c1a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-family: 'MinhaFonteLocal2', sans-serif;
+      font-size: 1.8rem;
+      color: #e65c1a;
+    }
+
+    nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font: 600 1.3rem 'MinhaFonteLocal', cursive;
+      color: #e65c1a;
+      position: relative;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+      background: #e65c1a;
+      transition: width 0.3s;
+      border-radius: 2px;
+    }
+
+    nav a:hover {
+      color: #ffb270;
+      transform: scale(1.1);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== Conteúdo ===== */
+    main {
+      flex: 1;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    main h1 {
+      font: 3rem 'MinhaFonteLocal', cursive;
+      color: #e65c1a;
+      text-align: center;
+    }
+
+    .depoimentos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card-depoimento {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card-depoimento:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .foto-depoimento {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .nome-depoimento {
+      font-family: 'MinhaFonteLocal', cursive;
+      font-size: 1.4rem;
+      color: #e65c1a;
+    }
+
+    .card-depoimento p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.25);
+      border-top: 3px solid #e65c1a;
+      backdrop-filter: blur(8px);
+      color: #e65c1a;
+      font: 1rem 'Fredoka', sans-serif;
+    }
+
+    footer:hover {
+      color: #ff7733;
+    }
+
+   
+    @media (max-width: 768px) {
+      nav {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      main h1 {
+        font-size: 2.2rem;
+      }
+
+      .card-depoimento p {
+        font-size: 1rem;
+      }
+    }
